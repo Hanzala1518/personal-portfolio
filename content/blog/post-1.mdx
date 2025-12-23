@@ -1,0 +1,46 @@
+---
+title: "Breaking Down Real-World MFA Fatigue Attacks"
+slug: "mfa-fatigue-attacks"
+excerpt: "Reverse engineering multi-factor fatigue campaigns and building resilient detection playbooks for security teams."
+category: "ANALYSIS"
+tags: ["MFA", "Detection Engineering", "Incident Response"]
+publishedAt: "2025-06-18"
+readingTime: "8 min"
+featuredImage: "/images/blog/mfa-fatigue.jpg"
+---
+
+> **Threat Intel Briefing:** Credential stuffing is noisy. MFA fatigue is patient, automated, and devastating when left unchecked.
+
+## Kill Chain Recap
+
+1. Compromised credentials sourced from dark web dumps.
+2. Automated MFA push flood leveraging residential proxies.
+3. Exhausted employee approves login after 30+ prompts.
+4. Session hijacked for internal recon and data exfil.
+
+## Detection Strategy
+
+- Correlate **push frequency** across identity providers.
+- Flag **geo-anomalous** push notifications.
+- Apply **risk scoring** to repeated denials with identical device fingerprints.
+
+```sql
+-- Supabase Edge SQL to aggregate abnormal MFA pushes
+select
+  user_id,
+  count(*) filter (where status = 'denied') as denied_count,
+  count(*) filter (where status = 'approved') as approved_count,
+  max(timestamp) as last_seen
+from auth.mfa_events
+where timestamp > now() - interval '2 hours'
+group by 1
+having count(*) > 20 and approved_count > 0;
+```
+
+## Response Playbook
+
+- Enforce **number matching** on Azure AD within 24 hours.
+- Deploy **conditional access** blocking high-risk IP ranges.
+- Automate **password reset + token revocation** sequence via Edge Functions.
+
+Stay ahead of adversaries by blending identity telemetry with behavioral analytics. Future deep dive: constructing adversarial simulations to train analysts against fatigue attacks.

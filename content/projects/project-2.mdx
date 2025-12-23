@@ -1,0 +1,51 @@
+---
+title: "Phishing Intel Matrix"
+slug: "phishing-intel-matrix"
+classification: "ML DEFENSE"
+heroImage: "/images/projects/phishing-intel-matrix.png"
+summary: "URL classification platform with continuous learning loop and automated takedown orchestration."
+tech: ["Next.js", "ONNX", "Supabase", "FastAPI", "Netlify Functions"]
+tags: ["Machine Learning", "Threat Intelligence", "Automation"]
+metrics:
+  accuracy: 0.982
+  responseTime: 85
+  coverage: "Global URL feeds"
+date: "2024-09-08"
+---
+
+## Overview
+
+Phishing Intel Matrix operationalizes large-scale URL intelligence with an ONNX-optimized model, browser-side inference fallback, and automated abuse desk escalation workflows.
+
+## The Problem
+
+- Phishing detection often lags attacker campaigns by hours.
+- Manual takedown requests slow remediation.
+- Analysts lack granular feature visibility explaining classification results.
+
+## Hypothesis
+
+Automating the full lifecycle—from detection to escalation—while providing interpretable model outputs will significantly reduce time-to-takedown and analyst overhead.
+
+## Architecture
+
+- **Collection:** Cloudflare Workers stream suspicious URLs into Supabase.
+- **Inference:** Primary inference served through FastAPI + ONNX Runtime with Vercel Edge fallback via TensorFlow.js.
+- **Response:** Resend API delivers templated takedown emails with signed PGP attachments.
+
+## Implementation Highlights
+
+- Deployed feature hashing pipeline in Rust to keep payloads under 50KB for edge distribution.
+- Integrated DOMPurify and CSP hardening to neutralize malicious preview payloads.
+- Built a live status map overlay using Mapbox GL to visualize attack origination points.
+
+## Results
+
+- **98.2%** accuracy with **0.4%** false positives on latest PhishTank validation set.
+- Automated escalation reduced takedown initiation to under **4 minutes**.
+- Enabled analyst explainability with SHAP visualizations surfaced in the case study viewer.
+
+## Retrospective
+
+- Introduce active learning to auto-curate ambiguous samples.
+- Expand coverage into IDN homograph detection using font rendering heuristics.

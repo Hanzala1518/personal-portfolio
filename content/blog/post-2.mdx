@@ -1,0 +1,46 @@
+---
+title: "Fine-Tuning ONNX Models for Edge Threat Detection"
+slug: "onnx-edge-threat-detection"
+excerpt: "Optimizing ONNX Runtime pipelines to defend edge networks with microsecond inference times."
+category: "TUTORIALS"
+tags: ["ONNX", "Edge Computing", "Cybersecurity"]
+publishedAt: "2025-04-10"
+readingTime: "10 min"
+featuredImage: "/images/blog/onnx-edge.jpg"
+---
+
+## Why ONNX at the Edge?
+
+- **Interoperability:** Train in PyTorch, deploy in Node, serve in Rust.
+- **Performance:** Graph optimizations deliver sub-5ms inference on ARM64 gateways.
+- **Portability:** Ship a single artifact across SOC dashboards, labs, and red team ranges.
+
+## Optimization Checklist
+
+1. Convert the base model with `onnxruntime-tools` and enable **Quantization-Aware Training**.
+2. Profile node-level latency with `ort.PerfTest`.
+3. Fuse ops and strip out unused graph branches.
+
+```bash
+python -m onnxruntime.tools.optimizer_cli \
+  --input phishing_model.onnx \
+  --output phishing_model.opt.onnx \
+  --model_type bert \
+  --opt_level 2
+```
+
+## Deployment Pipeline
+
+- Build a **FastAPI** wrapper exposing `/predict` with Redis-backed caching.
+- Stream **WebAssembly** binaries to Next.js edge routes for low-latency inference.
+- Cache model weights with **Vercel Blob** and revalidate every 6 hours.
+
+## Observability
+
+- Emit trace spans per request with OpenTelemetry.
+- Stream metrics into **PostHog** for feature-level analysis.
+- Attach **Sentry** breadcrumbs to each edge function invocation.
+
+## Wrap Up
+
+Delivering sub-10ms threat inference at the edge is no longer aspirational—it's table stakes. Upcoming guide: secure model supply chains with Sigstore + in-toto attestations.
