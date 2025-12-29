@@ -17,9 +17,7 @@ const heroLines = [
 
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-[90vh] flex-col justify-center overflow-hidden border-b border-matrix-dark/70">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0E14] via-[#13171E] to-[#0D1117]" />
-      <div className="absolute inset-0 bg-grid bg-[length:24px_24px] opacity-[0.02]" />
+    <section className="relative flex min-h-[90vh] flex-col justify-center overflow-hidden border-b border-matrix-dark/70 bg-matrix-darker/60">
       <MatrixRain />
       <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-10 px-6 py-24">
         <m.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
