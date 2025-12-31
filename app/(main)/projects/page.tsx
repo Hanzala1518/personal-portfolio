@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         {/* Header */}
         <div>
           <p className="text-xs font-mono uppercase tracking-[0.4em] text-matrix-green">Portfolio</p>
-          <h1 className="mt-3 font-display text-5xl text-matrix-white">All Projects</h1>
+          <h1 className="mt-3 font-display text-5xl text-matrix-white">All <span className="text-matrix-green">Projects</span></h1>
           <p className="mt-4 max-w-3xl text-lg text-matrix-grey">
             A comprehensive collection of my work spanning various technologies and domains.
           </p>
@@ -34,10 +34,10 @@ export default function ProjectsPage() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`rounded-full border px-4 py-1.5 text-sm transition ${
+              className={`rounded-full border px-4 py-1.5 text-sm transition-all duration-300 ${
                 selectedCategory === category
-                  ? "border-matrix-green bg-matrix-green/10 text-matrix-green"
-                  : "border-matrix-green/20 text-matrix-grey hover:border-matrix-green/40 hover:text-matrix-white"
+                  ? "border-matrix-green/70 bg-matrix-green/10 text-matrix-green shadow-[0_0_10px_rgba(255,56,56,0.2)]"
+                  : "border-matrix-navy/50 bg-matrix-navyDark/30 text-matrix-grey hover:border-matrix-green/50 hover:text-matrix-white"
               }`}
             >
               {category}
@@ -54,10 +54,10 @@ export default function ProjectsPage() {
               initial="hidden"
               animate="visible"
               transition={{ delay: index * 0.05 }}
-              className="group relative overflow-hidden rounded-xl border border-matrix-green/20 bg-matrix-darker/80 shadow-lg transition supports-hover:hover:-translate-y-1 supports-hover:hover:border-matrix-green/40 supports-hover:hover:shadow-glow"
+              className="group relative overflow-hidden rounded-xl border border-matrix-navy/40 bg-matrix-navyDark/40 shadow-lg transition-all duration-500 supports-hover:hover:-translate-y-2 supports-hover:hover:border-matrix-green/50 supports-hover:hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_20px_rgba(255,56,56,0.15)]"
             >
               {/* Project Image Placeholder */}
-              <div className="h-48 bg-gradient-to-br from-matrix-dark to-matrix-darker flex items-center justify-center border-b border-matrix-green/10">
+              <div className="h-48 bg-gradient-to-br from-matrix-navyDark to-matrix-dark flex items-center justify-center border-b border-matrix-navy/30">
                 <span className="text-6xl opacity-20">
                   {project.category === "Cybersecurity" && "🔒"}
                   {project.category === "Web Development" && "🌐"}
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
               {/* Content */}
               <div className="p-6 space-y-4">
                 {/* Category Badge */}
-                <span className="inline-block rounded-sm border border-matrix-green/30 bg-matrix-dark/80 px-2 py-1 text-[10px] font-mono uppercase tracking-[0.3em] text-matrix-green">
+                <span className="inline-block rounded-sm border border-matrix-navy/50 bg-matrix-navy/30 px-2 py-1 text-[10px] font-mono uppercase tracking-[0.3em] text-matrix-green">
                   {project.category}
                 </span>
 
@@ -88,20 +88,20 @@ export default function ProjectsPage() {
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-matrix-green/20 px-2 py-1 text-xs text-matrix-grey"
+                      className="rounded-full border border-matrix-navy/40 bg-matrix-navyDark/50 px-2 py-1 text-xs text-matrix-grey"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="rounded-full border border-matrix-green/20 px-2 py-1 text-xs text-matrix-grey">
+                    <span className="rounded-full border border-matrix-navy/40 bg-matrix-navyDark/50 px-2 py-1 text-xs text-matrix-grey">
                       +{project.technologies.length - 3} more
                     </span>
                   )}
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-3 pt-2 border-t border-matrix-dark">
+                <div className="flex gap-3 pt-2 border-t border-matrix-navy/30">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}

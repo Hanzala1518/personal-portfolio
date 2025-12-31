@@ -14,7 +14,7 @@ export default function MatrixRain() {
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg, transparent, rgba(0, 255, 65, 0.03));
+            background: linear-gradient(180deg, transparent, rgba(255, 56, 56, 0.03));
             animation: matrix-pulse 3s ease-in-out infinite;
           }
           @keyframes matrix-pulse {

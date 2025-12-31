@@ -23,13 +23,13 @@
 }
 
 .glitch::before {
-  color: rgba(0, 255, 65, 0.85);
+  color: rgba(255, 56, 56, 0.85);
   transform: translate(1px, 1px);
   animation: glitch 1.5s infinite linear alternate-reverse;
 }
 
 .glitch::after {
-  color: rgba(0, 255, 255, 0.6);
+  color: rgba(0, 36, 85, 0.6);
   transform: translate(-1px, -1px);
   mix-blend-mode: screen;
   animation: glitch 1.25s infinite linear alternate;
