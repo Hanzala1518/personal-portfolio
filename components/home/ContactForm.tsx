@@ -93,9 +93,9 @@ export default function ContactForm() {
           className="text-center"
         >
           <p className="text-xs font-mono uppercase tracking-[0.4em] text-matrix-green">Get In Touch</p>
-          <h2 className="mt-3 font-display text-4xl text-matrix-white">Let's Work <span className="text-matrix-green">Together</span></h2>
+          <h2 className="mt-3 font-display text-4xl text-matrix-white">Let&apos;s Work <span className="text-matrix-green">Together</span></h2>
           <p className="mt-4 mx-auto max-w-2xl text-lg text-matrix-grey/90 leading-relaxed">
-            Have a project in mind? I'm available for freelance work. Fill out the form below and let's discuss how I can help bring your ideas to life.
+            Have a project in mind? I&apos;m available for freelance work. Fill out the form below and let&apos;s discuss how I can help bring your ideas to life.
           </p>
         </m.div>
 

@@ -62,7 +62,7 @@ export default function Testimonials() {
           <p className="text-xs font-mono uppercase tracking-[0.4em] text-matrix-green">Testimonials</p>
           <h2 className="mt-3 font-display text-4xl text-matrix-white">What Clients <span className="text-matrix-green">Say</span></h2>
           <p className="mt-4 mx-auto max-w-2xl text-lg text-matrix-grey/90 leading-relaxed">
-            Feedback from clients and collaborators I've had the pleasure of working with on various projects.
+            Feedback from clients and collaborators I&apos;ve had the pleasure of working with on various projects.
           </p>
         </m.div>
 
