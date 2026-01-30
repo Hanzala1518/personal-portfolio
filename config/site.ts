@@ -14,16 +14,21 @@ const siteConfig = {
   author: {
     name: "Hanzala Saify", // Replace with your name
     handle: "@HanzalaSaify", // Replace with your Twitter/X handle
-    email: "hanzala.saify103@gmail.com", // Replace with your email
+    email: "hanzalasaify103@gmail.com", // Replace with your email
+    resumeUrl: "https://res.cloudinary.com/YOUR_CLOUD_NAME/raw/upload/Hanzala_Resume.pdf", // Replace with your Cloudinary resume URL
     social: [
-      "www.linkedin.com/in/hanzala-saify-11aa3a262", // Replace with your LinkedIn
+      "https://www.linkedin.com/in/hanzala-saify-11aa3a262/", // Replace with your LinkedIn
       "https://github.com/Hanzala1518", // Replace with your GitHub
       "https://x.com/HanzalaSaify" // Replace with your Twitter/X
     ]
   },
   nav: [
     { label: "Home", href: "/" },
-    { label: "Projects", href: "/projects" }
+    { label: "Skills", href: "/#skills" },
+    { label: "Certifications", href: "/#certifications" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Contact", href: "/#contact" }
   ]
 }
 

@@ -1,6 +1,7 @@
 "use client"
 
-import { Brain, LineChart, Cloud, ShieldCheck, Code, Globe, Users } from "lucide-react"
+import Image from "next/image"
+import { Brain, LineChart, Cloud, ShieldCheck, Code, Globe, Users, Settings, BookOpen } from "lucide-react"
 
 import { cardVariants, m, staggerContainer } from "@/components/shared/motion"
 import { skillMatrix } from "@/config/skills"
@@ -13,14 +14,16 @@ const iconMap = {
   cloud: Cloud,
   code: Code,
   globe: Globe,
-  users: Users
+  users: Users,
+  settings: Settings,
+  book: BookOpen
 }
 
 export default function SkillsMatrix() {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.15 })
 
   return (
-    <section className="relative border-b border-matrix-navy/40 bg-matrix-dark/40 py-24" ref={ref}>
+    <section id="skills" className="relative border-b border-matrix-navy/40 bg-matrix-dark/40 py-24" ref={ref}>
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-matrix-navy/[0.05] to-transparent pointer-events-none" />
       
@@ -67,11 +70,22 @@ export default function SkillsMatrix() {
                   <ul className="space-y-2.5">
                     {category.skills.map((skill, skillIndex) => (
                       <li 
-                        key={skill} 
+                        key={skill.name} 
                         className="flex items-center gap-3 text-sm text-matrix-grey transition-colors duration-300 group-hover:text-matrix-grey/90"
                       >
-                        <span className="h-1.5 w-1.5 rounded-full bg-matrix-green/60 transition-all duration-300 group-hover:bg-matrix-green" aria-hidden="true" />
-                        {skill}
+                        {skill.logo ? (
+                          <Image 
+                            src={skill.logo} 
+                            alt={`${skill.name} logo`}
+                            width={18}
+                            height={18}
+                            className="h-[18px] w-[18px] object-contain"
+                            unoptimized
+                          />
+                        ) : (
+                          <span className="h-1.5 w-1.5 rounded-full bg-matrix-green/60 transition-all duration-300 group-hover:bg-matrix-green" aria-hidden="true" />
+                        )}
+                        {skill.name}
                       </li>
                     ))}
                   </ul>

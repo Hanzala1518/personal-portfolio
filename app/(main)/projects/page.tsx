@@ -1,7 +1,8 @@
 "use client"
 
+import Link from "next/link"
 import { useState } from "react"
-import { ExternalLink, Github, Filter } from "lucide-react"
+import { ExternalLink, Github, Filter, Rocket } from "lucide-react"
 
 import { projects, projectCategories } from "@/config/projects"
 import { fadeUp, m } from "@/components/shared/motion"
@@ -56,6 +57,9 @@ export default function ProjectsPage() {
               transition={{ delay: index * 0.05 }}
               className="group relative overflow-hidden rounded-xl border border-matrix-navy/40 bg-matrix-navyDark/40 shadow-lg transition-all duration-500 supports-hover:hover:-translate-y-2 supports-hover:hover:border-matrix-green/50 supports-hover:hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_20px_rgba(255,56,56,0.15)]"
             >
+              {/* Clickable overlay for project details */}
+              <Link href={`/projects/${project.id}`} className="absolute inset-0 z-20" aria-label={`View ${project.title} details`} />
+              
               {/* Project Image Placeholder */}
               <div className="h-48 bg-gradient-to-br from-matrix-navyDark to-matrix-dark flex items-center justify-center border-b border-matrix-navy/30">
                 <span className="text-6xl opacity-20">
@@ -101,29 +105,33 @@ export default function ProjectsPage() {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-3 pt-2 border-t border-matrix-navy/30">
+                <div className="flex gap-3 pt-2 border-t border-matrix-navy/30 relative z-30">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm text-matrix-green hover:text-matrix-cyan transition-colors"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="h-4 w-4" />
                       Code
                     </a>
                   )}
-                  {project.demoUrl && (
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-matrix-green hover:text-matrix-cyan transition-colors"
-                    >
+                  <a
+                    href={project.liveUrl || "/projects/deploying"}
+                    target={project.liveUrl ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-matrix-green hover:text-matrix-cyan transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {project.liveUrl ? (
                       <ExternalLink className="h-4 w-4" />
-                      Live Demo
-                    </a>
-                  )}
+                    ) : (
+                      <Rocket className="h-4 w-4" />
+                    )}
+                    {project.liveUrl ? "Live Demo" : "Deploying..."}
+                  </a>
                 </div>
               </div>
             </m.article>

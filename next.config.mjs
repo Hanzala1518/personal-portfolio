@@ -18,7 +18,17 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" }
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "raw.githubusercontent.com" },
+      { protocol: "https", hostname: "cdn.jsdelivr.net" },
+      { protocol: "https", hostname: "skillicons.dev" },
+      { protocol: "https", hostname: "upload.wikimedia.org" },
+      { protocol: "https", hostname: "huggingface.co" },
+      { protocol: "https", hostname: "www.svgrepo.com" },
+      { protocol: "https", hostname: "cdn.worldvectorlogo.com" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
+      { protocol: "https", hostname: "echarts.apache.org" },
+      { protocol: "https", hostname: "www.eccouncil.org" }
     ]
   },
   async headers() {

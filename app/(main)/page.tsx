@@ -2,7 +2,8 @@ import HeroSection from "@/components/home/HeroSection"
 import SkillsMatrix from "@/components/home/SkillsMatrix"
 import Certifications from "@/components/home/Certifications"
 import FeaturedProjects from "@/components/home/FeaturedProjects"
-import StatsBar from "@/components/home/StatsBar"
+import Testimonials from "@/components/home/Testimonials"
+import ContactForm from "@/components/home/ContactForm"
 
 export default function HomePage() {
   return (
@@ -11,7 +12,8 @@ export default function HomePage() {
       <SkillsMatrix />
       <Certifications />
       <FeaturedProjects />
-      <StatsBar />
+      <Testimonials />
+      <ContactForm />
     </div>
   )
 }

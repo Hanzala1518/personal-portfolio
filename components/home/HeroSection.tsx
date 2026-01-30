@@ -161,7 +161,7 @@ export default function HeroSection() {
             variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] } } }}
           >
             <Button asChild variant="ghost" className="group border border-matrix-navy/40 bg-transparent px-6 py-3 text-sm tracking-wide text-matrix-grey hover:text-matrix-white hover:border-matrix-green/50 hover:bg-matrix-green/5">
-              <a href="/resume.pdf" download>
+              <a href={siteConfig.author.resumeUrl} target="_blank" rel="noopener noreferrer" download="Hanzala_Resume.pdf">
                 <Download className="h-4 w-4 mr-2 inline transition-transform duration-300 group-hover:-translate-y-0.5" />
                 <span className="align-middle">Download Resume</span>
               </a>

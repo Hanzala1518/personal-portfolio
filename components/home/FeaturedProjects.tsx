@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react"
+import { ExternalLink, Github, ArrowUpRight, Rocket } from "lucide-react"
 
 import { featuredProjects } from "@/config/projects"
 import { fadeUp, m, staggerContainer } from "@/components/shared/motion"
@@ -12,7 +12,7 @@ export default function FeaturedProjects() {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.1 })
   
   return (
-    <section className="relative border-b border-matrix-dark/60 bg-matrix-dark/30 py-24" ref={ref}>
+    <section id="projects" className="relative border-b border-matrix-dark/60 bg-matrix-dark/30 py-24" ref={ref}>
       {/* Subtle ambient glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-matrix-green/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-matrix-navy/20 rounded-full blur-3xl pointer-events-none" />
@@ -52,6 +52,9 @@ export default function FeaturedProjects() {
               custom={index}
               className="group relative overflow-hidden rounded-xl border border-matrix-navy/40 bg-matrix-navyDark/40 shadow-lg transition-all duration-500 ease-out supports-hover:hover:-translate-y-2 supports-hover:hover:border-matrix-green/50 supports-hover:hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_20px_rgba(255,56,56,0.15)]"
             >
+              {/* Clickable overlay for project details */}
+              <Link href={`/projects/${project.id}`} className="absolute inset-0 z-20" aria-label={`View ${project.title} details`} />
+              
               {/* Hover gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-matrix-green/0 to-matrix-green/0 transition-all duration-500 group-hover:from-matrix-navy/30 group-hover:to-transparent pointer-events-none z-10" />
               
@@ -95,29 +98,33 @@ export default function FeaturedProjects() {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-4 pt-2">
+                <div className="flex gap-4 pt-2 relative z-30">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group/link inline-flex items-center gap-1.5 text-sm text-matrix-green transition-all duration-300 hover:text-matrix-cyan"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="h-4 w-4" />
                       <span>Code</span>
                     </a>
                   )}
-                  {project.demoUrl && (
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/link inline-flex items-center gap-1.5 text-sm text-matrix-green transition-all duration-300 hover:text-matrix-cyan"
-                    >
+                  <a
+                    href={project.liveUrl || "/projects/deploying"}
+                    target={project.liveUrl ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                    className="group/link inline-flex items-center gap-1.5 text-sm text-matrix-green transition-all duration-300 hover:text-matrix-cyan"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {project.liveUrl ? (
                       <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                      <span>Live Demo</span>
-                    </a>
-                  )}
+                    ) : (
+                      <Rocket className="h-4 w-4" />
+                    )}
+                    <span>{project.liveUrl ? "Live Demo" : "Deploying..."}</span>
+                  </a>
                 </div>
               </div>
             </m.article>

@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
 
 import siteConfig from "@/config/site"
@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils/cn"
 
 export default function Header() {
   const pathname = usePathname()
+  const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -20,6 +21,44 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Handle navigation click with smooth scroll for section links
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Close mobile menu
+    setMenuOpen(false)
+
+    // Check if it's a section link (starts with /#)
+    if (href.startsWith("/#")) {
+      e.preventDefault()
+      const sectionId = href.replace("/#", "")
+      
+      // If we're not on the home page, navigate there first
+      if (pathname !== "/") {
+        router.push(href)
+        return
+      }
+
+      // Smooth scroll to section with offset for sticky header
+      const section = document.getElementById(sectionId)
+      if (section) {
+        const headerOffset = 80 // Account for sticky header height
+        const elementPosition = section.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.scrollY - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        })
+      }
+    }
+  }
+
+  // Check if current section is active (for highlighting)
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/"
+    if (href.startsWith("/#")) return false // Don't highlight section links based on pathname
+    return pathname === href
+  }
 
   return (
     <header 
@@ -58,16 +97,17 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className={cn(
                 "relative py-1 transition-all duration-300 hover:text-matrix-white",
-                pathname === item.href ? "text-matrix-green" : "text-matrix-grey"
+                isActive(item.href) ? "text-matrix-green" : "text-matrix-grey"
               )}
             >
               {item.label}
               <span 
                 className={cn(
                   "absolute -bottom-1 left-0 h-px bg-gradient-to-r from-matrix-green to-matrix-cyan transition-all duration-300",
-                  pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
+                  isActive(item.href) ? "w-full" : "w-0 group-hover:w-full"
                 )} 
               />
             </Link>

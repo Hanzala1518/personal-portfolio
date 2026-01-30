@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Award, ExternalLink } from "lucide-react"
 
 import { cardVariants, m, staggerContainer } from "@/components/shared/motion"
@@ -10,7 +11,7 @@ export default function Certifications() {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.15 })
 
   return (
-    <section className="relative border-b border-matrix-navy/40 bg-matrix-darker/60 py-24" ref={ref}>
+    <section id="certifications" className="relative border-b border-matrix-navy/40 bg-matrix-darker/60 py-24" ref={ref}>
       {/* Subtle background texture */}
       <div className="absolute inset-0 bg-gradient-to-b from-matrix-navy/[0.05] via-transparent to-matrix-navy/[0.05] pointer-events-none" />
       
@@ -46,7 +47,18 @@ export default function Certifications() {
               <div className="relative">
                 {/* Badge Icon */}
                 <div className="mb-5 flex h-20 items-center justify-center rounded-lg bg-matrix-navy/30 transition-all duration-300 group-hover:bg-matrix-green/10">
-                  <Award className="h-12 w-12 text-matrix-green opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110" />
+                  {cert.logo ? (
+                    <Image 
+                      src={cert.logo} 
+                      alt={`${cert.issuer} logo`}
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 object-contain opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
+                      unoptimized
+                    />
+                  ) : (
+                    <Award className="h-12 w-12 text-matrix-green opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110" />
+                  )}
                 </div>
 
                 {/* Certificate Info */}
