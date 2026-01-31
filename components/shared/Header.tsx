@@ -12,15 +12,43 @@ export default function Header() {
   const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState("/")
 
-  // Add scroll detection for header styling
+  // Add scroll detection for header styling and active section tracking
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+
+      // Only track sections on home page
+      if (pathname !== "/") return
+
+      // Get all sections
+      const sections = ["skills", "certifications", "projects", "testimonials", "contact"]
+      const scrollPosition = window.scrollY + 150 // Offset for header
+
+      // Check if we're at the top of the page
+      if (window.scrollY < 200) {
+        setActiveSection("/")
+        return
+      }
+
+      // Find the current section
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(`/#${sectionId}`)
+            return
+          }
+        }
+      }
     }
+
+    handleScroll() // Call once on mount
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname])
 
   // Handle navigation click with smooth scroll for section links
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -55,8 +83,11 @@ export default function Header() {
 
   // Check if current section is active (for highlighting)
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/"
-    if (href.startsWith("/#")) return false // Don't highlight section links based on pathname
+    // On home page, use scroll-based active section
+    if (pathname === "/") {
+      return activeSection === href
+    }
+    // On other pages, use pathname
     return pathname === href
   }
 

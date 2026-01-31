@@ -99,12 +99,14 @@ export const skillMatrix: SkillCategory[] = [
     icon: "shield",
     color: "text-matrix-red",
     skills: [
-      { name: "Ethical Hacking", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-      { name: "Network Security", logo: "https://img.freepik.com/free-vector/cyber-security-shield-light-blue_78370-7843.jpg?semt=ais_hybrid&w=740&q=80" },
-      { name: "Computer Networks", logo: "https://static.vecteezy.com/system/resources/thumbnails/049/671/076/small_2x/internet-connection-icon-free-png.png" },
-      { name: "Security Analysis", logo: "https://cdn-icons-png.freepik.com/256/6922/6922074.png?semt=ais_white_label" },
-      { name: "Wireshark", logo: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" }
-    ]
+  { name: "Ethical Hacking", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"},
+  { name: "Web Application Security", logo: "https://e7.pngegg.com/pngimages/888/471/png-clipart-computer-security-internet-security-antivirus-software-web-application-security-computer-software-others-miscellaneous-computer-network-thumbnail.png"},
+  { name: "Network Security", logo: "https://img.freepik.com/free-vector/cyber-security-shield-light-blue_78370-7843.jpg"},
+  { name: "Wireshark", logo: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg"},
+  { name: "Nmap", logo: "https://www.pikpng.com/pngl/m/332-3325675_site-logo-png.png"},
+  { name: "Metasploit Framework", logo: "https://www.kali.org/tools/metasploit-framework/images/metasploit-framework-logo.svg"},
+  { name: "Burp Suite", logo: "https://roanokeinfosec.com/wp-content/uploads/2020/02/burp_suite.png?w=300&h=174"}
+]
   },
   {
     title: "Tools & Developer Ecosystem",

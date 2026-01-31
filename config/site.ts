@@ -15,7 +15,6 @@ const siteConfig = {
     name: "Hanzala Saify", // Replace with your name
     handle: "@HanzalaSaify", // Replace with your Twitter/X handle
     email: "hanzalasaify103@gmail.com", // Replace with your email
-    resumeUrl: "https://res.cloudinary.com/YOUR_CLOUD_NAME/raw/upload/Hanzala_Resume.pdf", // Replace with your Cloudinary resume URL
     social: [
       "https://www.linkedin.com/in/hanzala-saify-11aa3a262/", // Replace with your LinkedIn
       "https://github.com/Hanzala1518", // Replace with your GitHub
