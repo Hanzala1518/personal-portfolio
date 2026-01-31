@@ -37,7 +37,7 @@ export const skillMatrix: SkillCategory[] = [
     icon: "brain",
     color: "text-matrix-cyan",
     skills: [
-      { name: "Generative AI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+      { name: "Generative AI", logo: "https://pbs.twimg.com/profile_images/1664729160689029120/EmYSwAWM_400x400.jpg" },
       { name: "RAG", logo: "https://miro.medium.com/0*Vj3xryR54H9H4_TB.jpg" },
       { name: "Multi-Agent Systems", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXKxfDQZ0c6yl2WcuZ28zgOsjDRIEsi698tw&s" },
       { name: "Intent Classification", logo: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
