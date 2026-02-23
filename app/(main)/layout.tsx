@@ -4,6 +4,7 @@ import Footer from "@/components/shared/Footer"
 import Header from "@/components/shared/Header"
 import { BGPattern } from "@/components/ui/bg-pattern"
 import { Vortex } from "@/components/ui/vortex"
+import ChatWidget from "@/components/ai-chat/ChatWidget"
 
 export default function MainLayout({ children }: { children: ReactNode }) {
   return (
@@ -40,6 +41,8 @@ export default function MainLayout({ children }: { children: ReactNode }) {
         <main className="flex-1">
           {children}
         </main>
+        {/* AI assistant — rendered above Footer so it never overlaps footer content */}
+        <ChatWidget />
         <Footer />
       </div>
     </div>

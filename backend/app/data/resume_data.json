@@ -1,0 +1,183 @@
+{
+  "owner": {
+    "name": "Hanzala Saify",
+    "title": "AI Developer & Cybersecurity Enthusiast",
+    "email": "hanzalasaify103@gmail.com",
+    "github": "https://github.com/Hanzala1518",
+    "linkedin": "https://www.linkedin.com/in/hanzala-saify-11aa3a262/",
+    "twitter": "https://x.com/HanzalaSaify",
+    "summary": "Full-stack software engineer and AI specialist with hands-on experience building production-grade AI systems, RAG pipelines, multi-agent platforms, and web applications. Passionate about the intersection of cybersecurity and artificial intelligence. Proficient across the full development lifecycle — from designing scalable backends with FastAPI and Node.js to crafting polished frontends with React and Next.js."
+  },
+  "projects": [
+    {
+      "id": "fourbyte-chatapp",
+      "title": "Fourbyte ChatApp",
+      "category": "Web Development",
+      "year": "2025",
+      "description": "Anonymous, real-time room-based chat application. No login, no database — just pure, ephemeral conversation with 4-digit room codes and WebSocket-powered messaging.",
+      "longDescription": "FOURBYTE is a minimalist, privacy-first chat application where conversations happen in real-time within ephemeral rooms. No account creation, no data persistence — just instant, anonymous communication. Built with Angular 21 frontend and Node.js/Express backend, featuring a distinctive 'Terminal Noir' design aesthetic.",
+      "technologies": ["Angular", "TypeScript", "Node.js", "Express", "Socket.io", "RxJS", "Vercel", "Railway"],
+      "features": [
+        "Fully Anonymous — no registration, no tracking, no data storage",
+        "4-Digit Room Codes — simple, memorable room identifiers",
+        "Real-Time Messaging — powered by WebSocket/Socket.io",
+        "Auto-Reconnection — seamless recovery from network issues",
+        "Rate Limiting — built-in spam protection",
+        "Ephemeral Rooms — auto-cleanup when empty"
+      ],
+      "githubUrl": "https://github.com/Hanzala1518/fourbyte",
+      "liveUrl": "https://fourbyte.vercel.app"
+    },
+    {
+      "id": "marketmuse-ai",
+      "title": "MarketMuse AI",
+      "category": "AI & Machine Learning",
+      "year": "2025",
+      "description": "Comprehensive multi-agent AI marketing platform with 10 distinct AI agents, real-time token-based billing, full-cycle campaign management dashboard, and n8n webhook integrations.",
+      "longDescription": "MarketMuse AI revolutionizes digital marketing workflows through 10 specialized AI agents. Features real-time token-based billing with Supabase, a campaign analytics dashboard, and n8n webhook automation for complex multi-step marketing pipelines.",
+      "technologies": ["React", "Supabase", "PostgreSQL", "n8n", "REST APIs"],
+      "features": [
+        "10 Distinct AI Agents for specialized marketing tasks",
+        "Real-time token-based billing and usage tracking",
+        "Campaign management dashboard with analytics",
+        "n8n webhook integration for workflow automation",
+        "Real-time updates using Supabase subscriptions"
+      ],
+      "githubUrl": "https://github.com/Hanzala1518/MarketMuseAI",
+      "liveUrl": "https://capstone-ai-marketplace.vercel.app"
+    },
+    {
+      "id": "chartgenie",
+      "title": "ChartGenie",
+      "category": "AI & Machine Learning",
+      "year": "2025",
+      "description": "Full-stack AI-powered data visualization platform that transforms raw CSVs into 7+ interactive dashboard types using React, Apache ECharts, and a high-performance RAG system powered by Groq's LPU.",
+      "longDescription": "ChartGenie lets users upload CSV files and instantly generates interactive dashboards. The integrated RAG system — built with Groq's ultra-fast LPU and Supabase Edge Functions — enables natural language queries over the uploaded data.",
+      "technologies": ["React", "Supabase", "RAG", "Groq API", "PostgreSQL", "Apache ECharts", "Tailwind CSS"],
+      "features": [
+        "7+ interactive chart types with Apache ECharts",
+        "RAG-powered natural language data analysis",
+        "Ultra-fast inference with Groq LPU",
+        "CSV to dashboard transformation",
+        "Chat interface for data exploration"
+      ],
+      "githubUrl": "https://github.com/Hanzala1518/ChartGenie"
+    },
+    {
+      "id": "propertyrag",
+      "title": "PropertyRAG",
+      "category": "AI & Machine Learning",
+      "year": "2025",
+      "description": "Production-grade real estate intelligence platform using RAG with a FastAPI backend featuring 9-intent classification, deterministic analytics engine, and hybrid search with CrossEncoder re-ranking.",
+      "longDescription": "PropertyRAG provides accurate, context-aware answers about real estate properties. The FastAPI backend classifies queries into 9 intents, runs a hybrid semantic + keyword search, and applies CrossEncoder re-ranking for high-confidence multi-turn responses.",
+      "technologies": ["RAG", "Google Gemini", "Pinecone", "FastAPI", "CrossEncoder", "Intent Classification", "Python"],
+      "features": [
+        "9-intent classification system",
+        "Hybrid search with CrossEncoder re-ranking",
+        "Multi-turn conversation support",
+        "Deterministic analytics engine"
+      ],
+      "githubUrl": "https://github.com/Hanzala1518/PropertyRAG"
+    },
+    {
+      "id": "object-detection-system",
+      "title": "Room-wise Object Detection",
+      "category": "AI & Machine Learning",
+      "year": "2025",
+      "description": "Computer vision application using YOLOv8 and Streamlit to detect and analyze household objects across rooms, with a full analytics dashboard and batch processing module.",
+      "technologies": ["YOLOv8", "Streamlit", "Computer Vision", "OpenCV", "Pandas", "Python"],
+      "features": [
+        "YOLOv8-powered object detection",
+        "Full analytics dashboard with statistics",
+        "Batch image processing",
+        "Object distribution charts"
+      ],
+      "githubUrl": "https://github.com/Hanzala1518/Room-wise-Object-Detection-System"
+    },
+    {
+      "id": "customer-churn-prediction",
+      "title": "Customer Churn Retention",
+      "category": "Data Science",
+      "year": "2025",
+      "description": "Machine learning model predicting telecom customer churn using feature engineering, model selection, and evaluation to improve customer retention strategies.",
+      "technologies": ["Python", "Pandas", "Scikit-learn", "Classification Models"],
+      "githubUrl": "https://github.com/Hanzala1518"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "skills": ["Python", "JavaScript", "TypeScript", "C++", "C#", "Java", "R", "SQL"]
+    },
+    {
+      "category": "AI, ML & Intelligent Systems",
+      "skills": ["Generative AI", "RAG (Retrieval-Augmented Generation)", "Multi-Agent Systems", "Intent Classification", "Vector Databases", "TensorFlow", "Keras", "Scikit-learn", "OpenCV", "Image Processing"]
+    },
+    {
+      "category": "Web Development & APIs",
+      "skills": ["React.js", "Next.js", "Node.js", "Express.js", "Angular", "FastAPI", "Streamlit", "Tailwind CSS", "HTML5", "CSS"]
+    },
+    {
+      "category": "Data Science & Visualization",
+      "skills": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Apache ECharts", "Tableau"]
+    },
+    {
+      "category": "Databases & Cloud Platforms",
+      "skills": ["PostgreSQL", "MySQL", "MongoDB", "Supabase", "Firebase", "Pinecone", "AWS", "Google Cloud Platform"]
+    },
+    {
+      "category": "Cybersecurity & Networking",
+      "skills": ["Ethical Hacking", "Web Application Security", "Network Security", "Wireshark", "Nmap", "Metasploit Framework", "Burp Suite"]
+    },
+    {
+      "category": "Tools & Developer Ecosystem",
+      "skills": ["Git & GitHub", "Postman", "Linux", "VS Code", "Google Colab", "n8n Workflows"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Certified Ethical Hacker v13 AI (Ongoing)",
+      "issuer": "EC-Council",
+      "year": "2026",
+      "description": "Advanced ethical hacking certification with AI-powered penetration testing, threat detection, and cybersecurity methodologies."
+    },
+    {
+      "name": "AWS Academy Graduate – Cloud Architecting",
+      "issuer": "AWS Academy",
+      "year": "2025",
+      "description": "Comprehensive training in designing scalable and secure cloud architectures on AWS.",
+      "credentialUrl": "https://www.credly.com/badges/8563b402-0ad9-4730-8e0d-7be5c02f8202/public_url"
+    },
+    {
+      "name": "Data Analyst in Python, Tableau & SQL",
+      "issuer": "Udemy",
+      "year": "2025",
+      "description": "Data cleaning, visualization, and analysis using Python, SQL, and Tableau."
+    },
+    {
+      "name": "Ethical Hacking From Scratch",
+      "issuer": "Udemy",
+      "year": "2025",
+      "description": "Practical ethical hacking and penetration testing including WiFi hacking, MITM attacks, and exploitation."
+    },
+    {
+      "name": "Google Cybersecurity Professional Certificate",
+      "issuer": "Google / Coursera",
+      "year": "2024",
+      "description": "Hands-on cybersecurity training covering network security, SOC, SIEM, incidents, vulnerabilities, and risk management.",
+      "credentialUrl": "https://coursera.org/verify/professional-cert/9BJTMLUCVP4X"
+    },
+    {
+      "name": "MERN Stack Development – 30 Days of Code",
+      "issuer": "30DC",
+      "year": "2024",
+      "description": "Full-stack web development using MongoDB, Express, React, and Node.js."
+    },
+    {
+      "name": "Google Cloud Fundamentals",
+      "issuer": "Google Cloud Study Jams",
+      "year": "2023",
+      "description": "Foundational training in Google Cloud services, networking, compute, IAM, and deployments."
+    }
+  ]
+}
